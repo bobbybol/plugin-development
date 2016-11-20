@@ -164,12 +164,9 @@
             </section>
         </main>
         
-        <!-- Page Footer -->
+        <!-- Page Footer & Common Script -->
         <?php include("../shared/_footer.php"); ?>
         
-        <!-- jQuery -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
         <!-- Plugin -->
         <script src="js/jquery.bb-textfitter.js"></script>
 
