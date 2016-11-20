@@ -1,0 +1,67 @@
+/* Typography
+   ========================================================================== */
+
+.h1 {
+    color: $color-font-white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.h2 {
+    color: $color-font-white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0 9px;
+}
+
+.h3 {
+    color: $color-font-white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0 9px;
+}
+
+.p {
+    font-size: 16px;
+    margin: 0;
+    color: $color-font-gray-light;
+    line-height: 1.35em;
+}
+
+.p a {
+    color: $color-1-normal;
+    text-decoration: underline;
+    
+    &:hover {
+        background: #1bbc9b;
+        color: $color-font-white;
+    }
+}
+
+hr {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.5);
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+address {
+    
+    span {
+
+    }
+}

@@ -1,0 +1,55 @@
+/* Base styles
+   ========================================================================== */
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: $color-box-dark;
+    font-family: $font-regular;
+}
+
+html,
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow-x: hidden;
+}
+
+a {
+    position: relative;
+    cursor: pointer;
+}
+
+a,
+a:active,
+a:focus {
+    outline: medium none;
+    text-decoration: none;
+}
+
+a img {
+    border: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: 0px none;
+}
+
+button:focus {
+    outline: 0px none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}

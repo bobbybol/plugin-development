@@ -1,0 +1,82 @@
+/* BB Textfitter styles
+   ========================================================================== */
+
+.textfitWrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.textfitContainer {
+    float: left;
+}
+
+.textfitTitle {
+    width: 200px;
+    color: $color-font-white;
+    text-align: center;
+    margin: 10px auto 0;
+    padding: 10px 0;
+    font-size: 14px;
+    border-top: 1px solid $color-1-normal;
+    
+    em {
+        text-decoration: underline;
+    }
+}
+
+
+/**
+ * Text boxes
+ */
+
+.textfitContainer {
+    .textContainer {
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        border: 10px solid $color-1-normal;
+        margin: 20px 20px 0;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+
+        p {
+            color: $color-font-black;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .fitOne {
+            box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+            padding: 5px;
+            height: 37px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+/**
+ * Media Queries
+ */
+
+@media only screen and (max-width: 960px){
+    .textfitWrapper {
+        width: 720px;
+    }   
+}
+
+@media only screen and (max-width: 720px){
+    .textfitWrapper {
+        width: 480px;
+    }   
+}
+
+@media only screen and (max-width: 480px){
+    .textfitWrapper {
+        width: 240px;
+    }   
+}

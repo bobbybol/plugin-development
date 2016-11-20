@@ -1,0 +1,48 @@
+/* Utilities
+   ========================================================================== */
+
+// The clearfix
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+// The 'no-select' fix
+a,
+button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;  
+}
+
+// The table to center vertically
+.bbTable-abs {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.bbTable {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.bbTable-cell {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+}
+
+// The titles for non-human visitors
+.forOutliner {
+    display: none;
+}

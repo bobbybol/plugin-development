@@ -1,0 +1,17 @@
+/* Footer styles
+   ========================================================================== */
+
+.mainFooter {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    
+    p {
+        text-align: center;
+        color: rgba(255,255,255, 0.2);
+        font-size: 12px;
+        font-family: monospace;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 16px 0;
+    }
+}
