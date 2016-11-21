@@ -1,7 +1,7 @@
 /* jshint -W117 */
 
 /*!
- * BB Text Fitter 2.1.0
+ * BB Text Fitter 2.2.0
  * Uses binary search to fit text with minimal layout calls.
  * https://github.com/bobbybol/textFitter
  * @license MIT licensed
@@ -33,7 +33,10 @@
             centerVertical      : false,    // center text vertically or not   
             // Extra options
             forceSingleLine     : false,    // force text onto single line
-            scaleUpToo          : false,    // possibility to scale text up too            
+            scaleUpToo          : false,    // possibility to scale text up too   
+            // Smart break
+            smartBreak          : false,    // use smart break for big words
+            smartBreakCharacter : '~'       // character to break a word on
         };        
         // Settings extendable with options
         $.extend(settings, options);
@@ -56,10 +59,8 @@
             var parentHeight        = parent.height();
             var parentWidth         = parent.width();
             var originalHTML        = toFit.html();            
-                // var originalText        = toFit.text();      <-- not used in v2.0.0
+            var originalText        = toFit.text();
             var newSpan;
-                // var singleLineHeight;                        <-- not used in v2.0.0
-                // var multiLine;                               <-- not used in v2.0.0
             
             // For binary search algorithm
             var low;
@@ -82,10 +83,119 @@
                 // Otherwise just make a reference to the pre-existing span
                 newSpan = toFit.find('span.textfittie');
             }
+            
+            // Force single line
+            if (settings.forceSingleLine) {
+                toFit.css({
+                    whiteSpace: "nowrap"
+                });
+            }
+            
+            // Set line height
+            toFit.css({
+                lineHeight: settings.lineHeight + "em"
+            });
+                                   
+            
+            /**
+             * Binary search for best fit
+             */
+            
+            function findBestFit(elementToFit) {            
+                low  = settings.minFontSize + 1;
+                high = settings.maxFontSize + 1;
+
+                if (!settings.scaleUpToo && elementToFit.height() <= parentHeight && newSpan.width() <= parentWidth) {
+                    // Do nothing if we do not scale up and the text fits all parent boundaries.
+                } else {
+                    while ( low <= high ) {
+                        mid  = parseInt((low + high) / 2); //34
+                        elementToFit.css('font-size', mid);
+
+                        if (elementToFit.height() <= parentHeight && newSpan.width() <= parentWidth) {
+                            // increase low
+                            low = mid + 1;
+                        } else {            
+                            // decrease high                
+                            high = mid - 1;
+                        }
+                    }
+                    // finally subtract 1 if width is still a little too large
+                    if (newSpan.width() > elementToFit.innerWidth() || elementToFit.height() > parentHeight) {
+                        elementToFit.css('font-size', mid - 1);
+                    }
+                }            
+            }
                        
-            /* v2.0.0 -- UNNECCESARY
-            =========================================================================
-            // Check for words that are too big to fit inside <p>
+            
+            /**
+             * Smart word break
+             */
+            
+            if(!settings.smartBreak) {
+                // Fit the text and be done with it 
+                findBestFit(toFit);                
+            } else {                
+                // check the the words for smartBreakCharacters
+                
+                // save an array of all words
+                
+                // save a reference to the original long~word
+                // 1. split with a " "
+                // 2. joined with a ""
+                
+                // build a new newSpan with HTML
+                // 1. with longword
+                // 2. with long word
+                
+                // run a virtual textfitter with both HTMLs
+                
+                // check if (textsize of `with longword`) <= (textsize of `with long word`)
+                
+                // use `long word` if it gives a bigger size than `longword`
+                
+                // run that 
+                
+                if (newSpan.width() > toFit.innerWidth()) {
+                    
+                    //settings.smartBreakCharacter
+                    console.log(originalHTML);
+                    console.log(originalText);
+                    
+                    
+                    var wordArray = originalHTML
+                        .trim()
+                        .split(" ")
+                    ;
+                    
+                    console.log(wordArray);
+                    
+                    var breakableWords = 
+                    wordArray.filter(function(word) {
+                        return word.indexOf(settings.smartBreakCharacter) > -1;
+                    })[0];
+                    
+                    var longWordPosition = wordArray.indexOf(breakableWords);
+                    
+                    console.log(longWordPosition);
+                    
+                    console.log(breakableWords);
+                    
+                    var brokenword = breakableWords.split("~");
+                    
+                    console.log(brokenword);
+                    
+                    wordArray[longWordPosition] = brokenword.join(" ");
+                    
+                    
+                    console.log(wordArray.join(" "));
+                    
+                    newSpan.html(wordArray.join(" "));
+                    
+                }
+            }
+            
+            /*
             if (newSpan.width() > toFit.innerWidth()) {
                 // find longest word
                 var wordArray = originalText.split(" ");
@@ -102,62 +212,13 @@
                 
                 newSpan.html(longestWord);
             }
-            =========================================================================
             */
             
-            // Force single line
-            if (settings.forceSingleLine) {
-                toFit.css({
-                    whiteSpace: "nowrap"
-                });
-            }
-            
-            // Set line height
-            toFit.css({
-                lineHeight: settings.lineHeight + "em"
-            });
-                       
-            /* v2.0.0 -- UNNECCESARY
-            =======================================================================================
-            // Detect multiline
-            singleLineHeight = Math.round(parseInt(toFit.css("font-size")) * settings.lineHeight);
-            if (newSpan.height() > (singleLineHeight * 1.5)) {
-                multiLine = true;
-            } else {
-                multiLine = false;
-            }
-            =======================================================================================
-            */           
-            
-            /**
-             * Binary search for best fit
-             */
-            
-            low  = settings.minFontSize + 1;
-            high = settings.maxFontSize + 1;
-                               
-            if (!settings.scaleUpToo && toFit.height() <= parentHeight && newSpan.width() <= parentWidth) {
-                // Do nothing if we do not scale up and the text fits all parent boundaries.
-            } else {
-                while ( low <= high ) {
-                    mid  = parseInt((low + high) / 2); //34
-                    toFit.css('font-size', mid);
-
-                    if (toFit.height() <= parentHeight && newSpan.width() <= parentWidth) {
-                        // increase low
-                        low = mid + 1;
-                    } else {            
-                        // decrease high                
-                        high = mid - 1;
-                    }
-                }
-                // finally subtract 1 if width is still a little too large
-                if (newSpan.width() > toFit.innerWidth() || toFit.height() > parentHeight) {
-                    toFit.css('font-size', mid - 1);
-                }
-            }
             
             
+            
+            
+                
             /**
              * Alignment to center
              */
@@ -170,20 +231,7 @@
             }
             
             // Vertical
-            if (settings.centerVertical) {
-                
-                /* v2.0.0 -- FLEXBOX ONLY
-                ============================
-                parent.css({
-                    display: "table"
-                });
-                toFit.css({
-                    display: "table-cell",
-                    verticalAlign: "middle"
-                });
-                ============================
-                */
-                
+            if (settings.centerVertical) {            
                 parent.css({
                     display: "flex",
                     flexDirection: "column",

@@ -151,6 +151,19 @@
                         </p>                
                         <button id="equalize" class="btn btn-textfit">Text Fittie</button>   
                     </div>
+                    
+                    <!-- Smart Word Break -->
+                    <div class="textfitContainer">                
+                        <div class="textContainer">
+                            <p class="smart-break">
+                                There's a Averyvery~longbigword and some other regular text that goes well well well over the height of the container. Si fly lalala lalala lalala llaaa laala Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce.
+                            </p>
+                        </div>              
+                        <p class="textfitTitle">
+                            Perfect scaling of big words.<br><br>
+                        </p>                
+                        <button id="smart-break" class="btn btn-textfit">Text Fittie</button>
+                    </div>
 
                 </div>
             </section>
@@ -237,6 +250,12 @@
                     lineHeight          : 1.1,
                     forceSingleLine     : true
                 }).bbEqualizeText();
+            });
+            
+            $('#smart-break').click(function() {
+                $('.smart-break').bbFitText({
+                    smartBreak          : true
+                });
             });
         </script>
         
