@@ -126,19 +126,73 @@
                     }
                 }            
             }
-                       
             
+                        
             /**
              * Smart word break
              */
             
-            if(!settings.smartBreak) {
-                // Fit the text and be done with it 
-                findBestFit(toFit);                
-            } else {                
-                // check the the words for smartBreakCharacters
+            function smartWordBreaker(elementToFit) {
+                // Variables for storing broken and unbroken versions                       
+                var htmlWithWordIntact;
+                var htmlWithWOrdBroken;
                 
-                // save an array of all words
+                // Save an array of all words
+                var longWordArray = originalText
+                    .trim()
+                    .split(" ")
+                    .filter(function(word) {
+                        return word.indexOf(settings.smartBreakCharacter) > -1;
+                    })
+                ;
+                
+                // Create an object for each longword with three properties
+                var objectArray = longWordArray.map(function(longword) {                    
+                    var splitWord = longword.split(settings.smartBreakCharacter);
+                    
+                    return {
+                        longwordOriginal : longword,
+                        longwordBroken   : splitWord.join("- "),
+                        longwordIntact   : splitWord.join("")
+                    };
+                });
+                
+                // We have to do a wordbreak-check with a double textfit for each longword
+                for( var i=0; i<objectArray.length; i++ ) {
+                    
+                    // a. build a textnode with longwordIntact..
+                    //    ..and save a reference for later use
+                    
+                    // b. run textfitter with a <p><span>longwordIntactTextNode</span></p>..
+                    //    ..for the current i and longwordBroken for every other i
+                    
+                    // c. store a reference to textsize with longwordIntact
+                    
+                    
+                    
+                    // 1. build a textnode with longwordBroken
+                    
+                    // 2. run textfitter with a <p><span>longwordBroken</span></p>..
+                    //    ..for the current i and longwordBroken for every other i
+                    
+                    // 3. store a reference to textsize with longwordIntact
+                    
+                    
+                    
+                    // Compare stored textsize variables
+                    // If the second is bigger, do nothing
+                    // If the first is bigger or equal, swap out second for first
+                    
+                    // AT THE SECOND ITERATION, THE RESULT FROM THE FIRST SHOULD BE A GIVEN
+                    // PERHAPS BUILD A TEXT NODE OR ARRAY THAT GETS IMPROVED WITH EVERY ITERATION
+                }
+                
+                
+                console.log(objectArray);
+                // Run word break and textfitter 
+                
+                
+                
                 
                 // save a reference to the original long~word
                 // 1. split with a " "
@@ -156,69 +210,22 @@
                 
                 // run that 
                 
-                if (newSpan.width() > toFit.innerWidth()) {
-                    
-                    //settings.smartBreakCharacter
-                    console.log(originalHTML);
-                    console.log(originalText);
-                    
-                    
-                    var wordArray = originalHTML
-                        .trim()
-                        .split(" ")
-                    ;
-                    
-                    console.log(wordArray);
-                    
-                    var breakableWords = 
-                    wordArray.filter(function(word) {
-                        return word.indexOf(settings.smartBreakCharacter) > -1;
-                    })[0];
-                    
-                    var longWordPosition = wordArray.indexOf(breakableWords);
-                    
-                    console.log(longWordPosition);
-                    
-                    console.log(breakableWords);
-                    
-                    var brokenword = breakableWords.split("~");
-                    
-                    console.log(brokenword);
-                    
-                    wordArray[longWordPosition] = brokenword.join(" ");
-                    
-                    
-                    console.log(wordArray.join(" "));
+            }
+            
+            // Checks for using `smart word breaker` or not
+            if(!settings.smartBreak || originalText.indexOf(settings.smartBreakCharacter) === -1 ) {
+                findBestFit(toFit);                
+            } else {                            
+                smartWordBreaker(toFit);
+            }
+            
+            if (false) {
                     
                     newSpan.html(wordArray.join(" "));
                     
-                }
             }
             
-            /*
-            if (newSpan.width() > toFit.innerWidth()) {
-                // find longest word
-                var wordArray = originalText.split(" ");
-                console.log(wordArray);
-                
-                var longestWord = wordArray.reduce(function(longest, currentWord) {
-                    if(currentWord.length > longest.length)
-                        return currentWord;
-                    else
-                       return longest;
-                }, "");
-                
-                console.log(longestWord);
-                
-                newSpan.html(longestWord);
-            }
-            */
-            
-            
-            
-            
-            
-                
+    
             /**
              * Alignment to center
              */
