@@ -156,7 +156,7 @@
                     <div class="textfitContainer">                
                         <div class="textContainer">
                             <p class="smart-break">
-                                There's a Averyvery~longbigword and some other regular text that goes well well well over the height of the container. Si fly lalala lalala lalala llaaa laala Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnipleek~lentil turnip greens parsnip. Sea lettuce.
+                                There's a Averyvery~longbigword and turnipleek~lentilBunya Bunya nuts black-eyed pea prairie Bunya nuts black-eyed pea prairie beet broccoli kombu
                             </p>
                         </div>              
                         <p class="textfitTitle">
@@ -164,6 +164,8 @@
                         </p>                
                         <button id="smart-break" class="btn btn-textfit">Text Fittie</button>
                     </div>
+                    
+                    <!-- and some other regular text that goes well well well over the height of the container. Si fly <span>lalala lalala lalala</span> llaaa laala Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnipleek~lentil turnip greens parsnip. Sea lettuce.-->
 
                 </div>
             </section>
@@ -254,7 +256,8 @@
             
             $('#smart-break').click(function() {
                 $('.smart-break').bbFitText({
-                    smartBreak          : true
+                    smartBreak          : true,
+                    scaleUpToo          : true
                 });
             });
         </script>

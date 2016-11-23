@@ -63,9 +63,9 @@
             var newSpan;
             
             // For binary search algorithm
-            var low;
-            var mid;
-            var high;
+            //var low;
+            //var mid;
+            //var high;
             
             /**
              * Check agains settings and solve some simple logic
@@ -102,9 +102,10 @@
              */
             
             function findBestFit(elementToFit) {            
-                low  = settings.minFontSize + 1;
-                high = settings.maxFontSize + 1;
-
+                var low  = settings.minFontSize + 1;
+                var high = settings.maxFontSize + 1;
+                var mid;
+                
                 if (!settings.scaleUpToo && elementToFit.height() <= parentHeight && newSpan.width() <= parentWidth) {
                     // Do nothing if we do not scale up and the text fits all parent boundaries.
                 } else {
@@ -132,10 +133,14 @@
              * Smart word break
              */
             
-            function smartWordBreaker(elementToFit) {
-                // Variables for storing broken and unbroken versions                       
-                var htmlWithWordIntact;
-                var htmlWithWOrdBroken;
+            function smartWordBreaker() {
+                // Locally scoped version of the HTML                     
+                var smartHTML = originalHTML;
+                var lwOriginal;
+                var lwBroken;
+                var lwIntact;
+                var fontsizeIntact;
+                var fontsizeBroken;
                 
                 // Save an array of all words
                 var longWordArray = originalText
@@ -157,75 +162,51 @@
                     };
                 });
                 
-                // We have to do a wordbreak-check with a double textfit for each longword
-                for( var i=0; i<objectArray.length; i++ ) {
+                // Build the initial HTML which we will start optimizing                
+                for( var i=0; i<objectArray.length; i++ ) {        
+                    lwOriginal  = objectArray[i].longwordOriginal;
+                    lwBroken    = '<span class="smartWordBreak">' + objectArray[i].longwordBroken + '</span>';
                     
-                    // a. build a textnode with longwordIntact..
-                    //    ..and save a reference for later use
-                    
-                    // b. run textfitter with a <p><span>longwordIntactTextNode</span></p>..
-                    //    ..for the current i and longwordBroken for every other i
-                    
-                    // c. store a reference to textsize with longwordIntact
-                    
-                    
-                    
-                    // 1. build a textnode with longwordBroken
-                    
-                    // 2. run textfitter with a <p><span>longwordBroken</span></p>..
-                    //    ..for the current i and longwordBroken for every other i
-                    
-                    // 3. store a reference to textsize with longwordIntact
-                    
-                    
-                    
-                    // Compare stored textsize variables
-                    // If the second is bigger, do nothing
-                    // If the first is bigger or equal, swap out second for first
-                    
-                    // AT THE SECOND ITERATION, THE RESULT FROM THE FIRST SHOULD BE A GIVEN
-                    // PERHAPS BUILD A TEXT NODE OR ARRAY THAT GETS IMPROVED WITH EVERY ITERATION
+                    smartHTML = smartHTML.replace( lwOriginal , lwBroken );
                 }
+                newSpan.html(smartHTML);
                 
+                // Get a reference to all smart words
+                var allSmartWords = newSpan.find('.smartWordBreak');
                 
-                console.log(objectArray);
-                // Run word break and textfitter 
-                
-                
-                
-                
-                // save a reference to the original long~word
-                // 1. split with a " "
-                // 2. joined with a ""
-                
-                // build a new newSpan with HTML
-                // 1. with longword
-                // 2. with long word
-                
-                // run a virtual textfitter with both HTMLs
-                
-                // check if (textsize of `with longword`) <= (textsize of `with long word`)
-                
-                // use `long word` if it gives a bigger size than `longword`
-                
-                // run that 
-                
+                // We have to do a wordbreak-check with a double textfit for each smart word
+                for( var j=0; j<objectArray.length; j++ ) {                    
+                    // First fit is with word broken
+                    findBestFit(toFit);
+                    // And store font-size
+                    fontsizeBroken = toFit.css('font-size');
+                    console.log('font-size with word broken: ' + fontsizeBroken);
+                    
+                    // Find [j-th] wordBroken and replace with wordIntact
+                    $(allSmartWords[j]).text(objectArray[j].longwordIntact);
+                    // Fit again
+                    findBestFit(toFit);
+                    // And store font-size
+                    fontsizeIntact = toFit.css('font-size');
+                    console.log('font-size with word intact: ' + fontsizeIntact);
+                    
+                    // If the broken version gives a better result,
+                    // e.g. a bigger -fitted- font-size, then use that.
+                    if (fontsizeBroken > fontsizeIntact) {
+                        $(allSmartWords[j]).text(objectArray[j].longwordBroken);
+                        findBestFit(toFit);
+                    }
+                }                
             }
             
-            // Checks for using `smart word breaker` or not
+            // Some checks for using `smart word breaker` or not
             if(!settings.smartBreak || originalText.indexOf(settings.smartBreakCharacter) === -1 ) {
                 findBestFit(toFit);                
             } else {                            
-                smartWordBreaker(toFit);
+                smartWordBreaker();
             }
+
             
-            if (false) {
-                    
-                    newSpan.html(wordArray.join(" "));
-                    
-            }
-            
-    
             /**
              * Alignment to center
              */
