@@ -156,7 +156,7 @@
                     <div class="textfitContainer">                
                         <div class="textContainer">
                             <p class="smart-break">
-                                There's a Averyvery~longbigword and turnipleek~lentilBunya Bunya nuts black-eyed pea prairie Bunya nuts black-eyed pea prairie beet broccoli kombu
+                                There's a Averyvery~longbigword and turnipleek~lentil<!-- Bunya nuts black-eyed pea prairie Bunya nuts black-eyed pea prairie beet broccoli kombu-->
                             </p>
                         </div>              
                         <p class="textfitTitle">
@@ -165,8 +165,6 @@
                         <button id="smart-break" class="btn btn-textfit">Text Fittie</button>
                     </div>
                     
-                    <!-- and some other regular text that goes well well well over the height of the container. Si fly <span>lalala lalala lalala</span> llaaa laala Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnipleek~lentil turnip greens parsnip. Sea lettuce.-->
-
                 </div>
             </section>
             <section class="plugin--explanation">

@@ -61,11 +61,7 @@
             var originalHTML        = toFit.html();            
             var originalText        = toFit.text();
             var newSpan;
-            
-            // For binary search algorithm
-            //var low;
-            //var mid;
-            //var high;
+
             
             /**
              * Check agains settings and solve some simple logic
@@ -136,9 +132,7 @@
             function smartWordBreaker() {
                 // Locally scoped version of the HTML                     
                 var smartHTML = originalHTML;
-                var lwOriginal;
-                var lwBroken;
-                var lwIntact;
+                // 
                 var fontsizeIntact;
                 var fontsizeBroken;
                 
@@ -160,46 +154,51 @@
                         longwordBroken   : splitWord.join("- "),
                         longwordIntact   : splitWord.join("")
                     };
+                });     
+                
+                // Build array of smartWordBreak <span>s
+                objectArray.forEach(function(object) {
+                    var lwOriginal  = object.longwordOriginal;
+                    var lwBroken    = '<span class="smartWordBreak">' + object.longwordBroken + '</span>';
+
+                    smartHTML = smartHTML.replace( lwOriginal , lwBroken );
                 });
                 
-                // Build the initial HTML which we will start optimizing                
-                for( var i=0; i<objectArray.length; i++ ) {        
-                    lwOriginal  = objectArray[i].longwordOriginal;
-                    lwBroken    = '<span class="smartWordBreak">' + objectArray[i].longwordBroken + '</span>';
-                    
-                    smartHTML = smartHTML.replace( lwOriginal , lwBroken );
-                }
+                // Repleace old HTML with smartHTML
                 newSpan.html(smartHTML);
-                
+   
                 // Get a reference to all smart words
                 var allSmartWords = newSpan.find('.smartWordBreak');
-                
+
                 // We have to do a wordbreak-check with a double textfit for each smart word
-                for( var j=0; j<objectArray.length; j++ ) {                    
+                objectArray.forEach(function(object, index) {
+                    // FIT #1
                     // First fit is with word broken
                     findBestFit(toFit);
                     // And store font-size
                     fontsizeBroken = toFit.css('font-size');
-                    console.log('font-size with word broken: ' + fontsizeBroken);
                     
-                    // Find [j-th] wordBroken and replace with wordIntact
-                    $(allSmartWords[j]).text(objectArray[j].longwordIntact);
+                    // FIT #2
+                    // Find [i-th] wordBroken and replace with wordIntact
+                    $(allSmartWords[index]).text(object.longwordIntact);
                     // Fit again
                     findBestFit(toFit);
                     // And store font-size
                     fontsizeIntact = toFit.css('font-size');
-                    console.log('font-size with word intact: ' + fontsizeIntact);
                     
-                    // If the broken version gives a better result,
-                    // e.g. a bigger -fitted- font-size, then use that.
+                    // FIT #3
                     if (fontsizeBroken > fontsizeIntact) {
-                        $(allSmartWords[j]).text(objectArray[j].longwordBroken);
+                        $(allSmartWords[index]).text(object.longwordBroken);
                         findBestFit(toFit);
                     }
-                }                
+                });
             }
             
-            // Some checks for using `smart word breaker` or not
+            
+            /**
+             * Call that Fitter
+             */
+            
             if(!settings.smartBreak || originalText.indexOf(settings.smartBreakCharacter) === -1 ) {
                 findBestFit(toFit);                
             } else {                            
