@@ -190,23 +190,27 @@
                     <h3 class="h3">Changelog</h3>
                     <p class="p changelog">
                         <strong>2.2.0</strong>
-                        <br>                       
-                        • Added Smart Word Breaker functionality<br>
+                        <br>
+                        Added<br>
+                        • Smart Word Breaker functionality<br>
                         • Smartbreak character now configurable in options
                         <br>
                         <br>
                         
                         <strong>2.1.0</strong>
                         <br>
-                        • Added Text Equalizer plugin<br>
+                        Added<br>
+                        • Text Equalizer plugin<br>
                         • Text Equalizer can be called seperately, after fitting
                         <br>
                         <br>
                         
                         <strong>2.0.0</strong>
                         <br>
-                        • Added New repository with completely rebuilt textfitter<br>
-                        • Text Aligner included in main plugin Upscaling is now optional
+                        Added<br>
+                        • New repository with completely rebuilt textfitter<br>
+                        • Text Aligner included in main plugin
+                        • Upscaling is now optional
                     </p>
                      
                     <hr>
