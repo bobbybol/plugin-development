@@ -169,10 +169,20 @@
             </section>
             <section class="plugin--explanation">
                 <div class="explanation-container">
-                    <h3 class="h3">Fully customizable</h3>
-                    <p class="p">Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley salsify.
-
-                    Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.</p>
+                    <h3 class="h3">The Plugin</h3>
+                    <p class="p">
+                        BB Text Fitter is a plugin developed to help you with..
+                    </p>
+                    
+                    <hr>
+                    
+                    <h3 class="h3">Usage</h3>
+                    <p class="p">
+                        To start using the Text Fitter plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+                    </p>
+                    
+                    <hr>
+                    
                 </div>
                 <div class="dl">
                     <p class="p">download</p>
