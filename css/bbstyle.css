@@ -529,6 +529,9 @@ button::-moz-focus-inner {
     background: #1bbc9b;
     color: #ffffff; }
 
+.changelog strong {
+  text-decoration: underline; }
+
 hr {
   border-top: none;
   border-left: none;

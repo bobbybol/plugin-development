@@ -171,8 +171,12 @@
                 <div class="explanation-container">
                     <h3 class="h3">The Plugin</h3>
                     <p class="p">
-                        BB Text Fitter is a plugin developed to help you with..
+                        BB Text Fitter is a plugin developed to help you with fitting text into a limited amount of space. This can occur when designing a responsive site with some complex layout, or if you have text coming from a database that should fit a certain container, but you don't have control over the amount of text provided.
+                        <br>
+                        <br>
+                        Thanks to some excellent user feedback over time, this plugin has come to include a wealth of interesting features. Most of these are included into the Text Fitter plugin itself, and can be configured by changing the plugin settings. The exception to this is the Equalize Text feature, which has evolved to become a separate plugin by itself. It is included with Text Fitter, and can be used immediately.
                     </p>
+                    
                     
                     <hr>
                     
@@ -181,6 +185,30 @@
                         To start using the Text Fitter plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
                     </p>
                     
+                    <hr>
+                    
+                    <h3 class="h3">Changelog</h3>
+                    <p class="p changelog">
+                        <strong>2.2.0</strong>
+                        <br>                       
+                        • Added Smart Word Breaker functionality<br>
+                        • Smartbreak character now configurable in options
+                        <br>
+                        <br>
+                        
+                        <strong>2.1.0</strong>
+                        <br>
+                        • Added Text Equalizer plugin<br>
+                        • Text Equalizer can be called seperately, after fitting
+                        <br>
+                        <br>
+                        
+                        <strong>2.0.0</strong>
+                        <br>
+                        • Added New repository with completely rebuilt textfitter<br>
+                        • Text Aligner included in main plugin Upscaling is now optional
+                    </p>
+                     
                     <hr>
                     
                 </div>
