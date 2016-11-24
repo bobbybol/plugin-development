@@ -14,7 +14,7 @@
     "use strict";
 
     /**
-     * Defining the Plugin
+     * Defining the `Text Fitter` Plugin
      */
     
     $.fn.bbFitText = function(options) {
@@ -64,7 +64,7 @@
 
             
             /**
-             * Check agains settings and solve some simple logic
+             * Check against settings and solve some simple logic
              */
                     
             // If we haven't added span.textfittie in a previous iteration..
@@ -132,7 +132,7 @@
             function smartWordBreaker() {
                 // Locally scoped version of the HTML                     
                 var smartHTML = originalHTML;
-                // 
+                // Font sizes to compare after respective fits
                 var fontsizeIntact;
                 var fontsizeBroken;
                 
@@ -164,7 +164,7 @@
                     smartHTML = smartHTML.replace( lwOriginal , lwBroken );
                 });
                 
-                // Repleace old HTML with smartHTML
+                // Replace old HTML with smartHTML
                 newSpan.html(smartHTML);
    
                 // Get a reference to all smart words
@@ -196,7 +196,7 @@
             
             
             /**
-             * Call that Fitter
+             * Call the fitter
              */
             
             if(!settings.smartBreak || originalText.indexOf(settings.smartBreakCharacter) === -1 ) {
@@ -231,7 +231,7 @@
     
     
     /**
-     * Defining the Plugin
+     * Defining the `Text Equalizer` Plugin
      */
     
     $.fn.bbEqualizeText = function() {

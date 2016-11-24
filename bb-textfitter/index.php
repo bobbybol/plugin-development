@@ -156,11 +156,11 @@
                     <div class="textfitContainer">                
                         <div class="textContainer">
                             <p class="smart-break">
-                                There's a Averyvery~longbigword and turnipleek~lentil<!-- Bunya nuts black-eyed pea prairie Bunya nuts black-eyed pea prairie beet broccoli kombu-->
+                                I watched the movie 'It' and now I suffer from coulro~phobia.
                             </p>
                         </div>              
                         <p class="textfitTitle">
-                            Perfect scaling of big words.<br><br>
+                            Smart word breaking for extra control over layout.
                         </p>                
                         <button id="smart-break" class="btn btn-textfit">Text Fittie</button>
                     </div>
@@ -173,6 +173,15 @@
                     <p class="p">Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley salsify.
 
                     Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.</p>
+                </div>
+                <div class="dl">
+                    <p class="p">download</p>
+                    <a href="<?php echo $linkGit ?>" target="_blank">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="<?php echo $linkDL ?>">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </a>
                 </div>
             </section>
         </main>

@@ -9,7 +9,9 @@
     $canonical="";
     $path="";
     $font="";
-    
+    $linkGit="";
+    $linkDL="";
+
     // values for PLUGIN HOME
     if ($thisPage=="bb-plugins") {
         $pageTitle="All BB Plugins | by Bobby Bol";
@@ -28,7 +30,6 @@
         $pageClass="bb-accordion";
         $canonical="/bb-accordion";
         $path="../";
-        $font='<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">';
     }
 
     // values for BB TEXT FITTER
@@ -41,6 +42,8 @@
         $canonical="/bb-textfitter";
         $path="../";
         $font='<link href="//fonts.googleapis.com/css?family=Gloria+Hallelujah|Josefin+Slab:300" rel="stylesheet">';
+        $linkGit="https://github.com/bobbybol/textFitter";
+        $linkDL="https://github.com/bobbybol/textFitter/archive/master.zip";
     }
 
     // values for BB PIXELIFY

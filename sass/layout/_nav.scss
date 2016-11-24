@@ -1,3 +1,27 @@
 /* Navigation styles
    ========================================================================== */
 
+.dl {
+    padding-top: 4px;
+    text-align: center;
+    
+    .p {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        padding-bottom: 2px;
+    }
+    
+    a {
+        color: $color-1-normal;
+        font-size: 22px;
+        padding: 2px;
+        margin: 0 4px;
+
+        &:hover {
+            color: $color-1-active;
+
+        }
+    }
+}

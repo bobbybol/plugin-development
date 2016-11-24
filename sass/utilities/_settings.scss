@@ -14,6 +14,7 @@ $font-regular: 'Helvetica', 'Arial', sans-serif;
 
 // Brand colors
     $color-1-normal: #1bbc9b;
+    $color-1-active: darken($color-1-normal, 10%);
 
 // Box colors
     $color-box-white: #fff;

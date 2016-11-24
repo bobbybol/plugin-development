@@ -496,11 +496,11 @@ button::-moz-focus-inner {
    ========================================================================== */
 .h1 {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   text-align: center;
   margin: 0;
-  padding: 20px 0; }
+  padding: 20px 0 0; }
 
 .h2 {
   color: #ffffff;
@@ -551,7 +551,8 @@ ul {
  */
 .toggle,
 .textfitButton,
-.btn {
+.btn,
+.dl a {
   -webkit-transition: all 0.15s ease-out 0s;
   -moz-transition: all 0.15s ease-out 0s;
   transition: all 0.15s ease-out 0s; }
@@ -673,6 +674,7 @@ ul {
    ========================================================================== */
 .mainHeader {
   margin-bottom: 40px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
 
@@ -681,6 +683,23 @@ ul {
 
 /* Navigation styles
    ========================================================================== */
+.dl {
+  padding-top: 4px;
+  text-align: center; }
+  .dl .p {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    padding-bottom: 2px; }
+  .dl a {
+    color: #1bbc9b;
+    font-size: 22px;
+    padding: 2px;
+    margin: 0 4px; }
+    .dl a:hover {
+      color: #158f76; }
+
 /* Main styles
    ========================================================================== */
 /* Home styles
@@ -696,7 +715,8 @@ ul {
 .explanation-container {
   width: 92%;
   margin: 0 auto;
-  max-width: 600px; }
+  max-width: 600px;
+  padding-bottom: 40px; }
 
 /* BB Accordion styles
    ========================================================================== */
