@@ -1,7 +1,7 @@
 /* jshint -W117 */
 
 /*!
- * BB Matrix Shuffle 0.0.5
+ * BB Matrix Shuffle 1.0.0
  * Reshuffle a grid array into various other layouts
  * https://github.com/bobbybol/matrixshuffler
  * @license MIT licensed
@@ -23,10 +23,12 @@
          */
 
         var settings = {
-            columns             : 10,
-            rows                : 10,
-            shuffleAlgorithm    : "random",
-            diagonalDirection   : "tl->br"
+            rows                : 10,               // number of columns
+            columns             : 10,               // number of rows
+            shuffleAlgorithm    : "linear",         // linear, diagonal, circular, random
+            linearDirection     : "top->bottom",    // top->bottom, bottom->top, left->right, right->left
+            diagonalDirection   : "tl->br",         // tl->br, br->tl, tr->bl, bl->tr
+            centerWrapping      : "inside->out"     // inside->out, outside->in
         };        
         // Settings extendable with options
         $.extend(settings, options);
@@ -54,19 +56,19 @@
          *
          *   With 5 rows and 3 columns
          *
-         *   | 0  | 1  | 2  |
+         *   | 0  | 1  | 2  | a
          *   +----+----+----+
-         *   | 3  | 4  | 5  |
+         *   | 3  | 4  | 5  | a
          *   +----+----+----+
-         *   | 6  | 7  | 8  |
+         *   | 6  | 7  | 8  | a
          *   +----+----+----+
-         *   | 9  | 10 | 11 |
+         *   | 9  | 10 | 11 | a
          *   +----+----+----+
-         *   | 12 | 13 | 14 |
+         *   | 12 | 13 | 14 | a
          *
          */
 
-        var testArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        var testArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
         
         
         /**
@@ -128,25 +130,64 @@
     
         // Mirror
         function mirrorShuffle(array) {
-            var rows                = settings.rows;
-            var rowLength           = array.length / rows;
-            var newMirroredArray    = [];
-            var i;
+            var rowLength           = array.length / settings.rows;
             
-            // create a n number of new arrays, where n = the number of rows
-            for(i = 0; i < rows; i++) {
-                var arrayRow =  array.slice( rowLength * i, rowLength * i + rowLength);
-                arrayRow.reverse();
-                newMirroredArray.push(arrayRow);
-            } 
+            // Reduce an array of items to an array of rows..
+            var newMirroredArray = array
+                .reduce(function (rowArray, item, index) { 
+                    return (index % rowLength === 0 ? rowArray.push([item]) 
+                            : rowArray[rowArray.length-1].push(item)) && rowArray;
+                }, [])
+                // ..and reverse those rows
+                .map(function (arrayRow) {
+                    return arrayRow.reverse();
+                })
+            ;
             
             return flatten2dMatrix(newMirroredArray);
+                       
+            /* OLD WHILE LOOP
+                // While array has any items left in it..
+                while (array.length) {
+                    newMirroredArray
+                        // ..push arrays to newMirroredArray..
+                        .push(array
+                              // ..with the length of a row..
+                              .splice(0, rowLength)
+                              // ..and reversed (e.g. mirrored). 
+                              .reverse()
+                             );
+                }
+            */
+        }
+        
+        // Rotate
+        function rotateShuffle(array) {
+            var numRows = settings.rows;
+            var numColumns = settings.columns;
+            var newRotatedArray = [];
+            var i;
+            var j;
+            
+            for(i=0; i<numColumns; i++) {
+                // make new row
+                var newRow = [];
+                
+                for(j=0; j<numRows; j++) {
+                    newRow.push(array[j*numColumns+i]);
+                }
+                
+                // push new row to 2d array
+                newRotatedArray.push(newRow);
+            }
+            
+            return flatten2dMatrix(newRotatedArray);
         }
         
         // Inside Out 
         function insideOutShuffle(array) {
-            var rows                = 3; //settings.rows;
-            var columns             = 5; //settings.columns;
+            var rows                = settings.rows;
+            var columns             = settings.columns;
             
             var rowLength           = columns;
             var columnLength        = rows;
@@ -163,6 +204,7 @@
             var i;
             var j;
             var k;
+            var l;
              
             // number of rings
             if(longestAxis % 2) {
@@ -187,9 +229,7 @@
                 arrayRow =  array.slice( rowLength * i, rowLength * i + rowLength);
                 arrayOfRowArrays.push(arrayRow);
             } 
-            
-            //console.log(arrayOfRowArrays);
-            
+                        
             for(j = 0; j < numberOfRings; j++) {
                 var ring                = [];
                 var subRing             = [];
@@ -197,14 +237,11 @@
                 var lastRow;
                 var firstItem;
                 var lastItem;
-                var currentRowLength    = arrayOfRowArrays.length;
-                var currentColumnLength = arrayOfRowArrays[0].length;
-                
-                //console.log(currentRowLength);
-                //console.log(currentColumnLength);
-                
+                var currentNumRows    = arrayOfRowArrays.length;
+                var currentNumColumns = arrayOfRowArrays[0].length;
+                                
                 // CASE 1: if there's more rows than inner rings
-                if(currentRowLength > currentColumnLength + 1) {
+                if(currentNumRows >= currentNumColumns + 1) {
                     console.log("more rows than rings");
 
                     // shave off first and last row completely
@@ -212,12 +249,12 @@
                     lastRow  = arrayOfRowArrays.pop();
                     // put them into ring array
                     ring.push(firstRow, lastRow);
-                    newGuttedArray.push(flatten2dMatrix(ring));
                     
+                    newGuttedArray.push(flatten2dMatrix(ring));  
                 }
                 
                 // CASE 2: if there's more columns than inner rings
-                else if(currentColumnLength >  currentRowLength + 1) {
+                else if(currentNumColumns >  currentNumRows + 1) {
                     console.log("more columns than rings");
                     
                     // shave off all first and last elements of all rows
@@ -234,26 +271,53 @@
                 // CASE 3: it's a square!!
                 else {
                     console.log("square");
-                    // shave off first and last row completely
+                    
+                    if (arrayOfRowArrays.length === 1) {
+                        ring.push(arrayOfRowArrays[0]);
+                        j++;
+                    } else if (arrayOfRowArrays.length === 2) {
+                        ring.push(arrayOfRowArrays[0], arrayOfRowArrays[1]);
+                        j++;
+                    } else {
+                        // shave off first and last row completely
+                        firstRow = arrayOfRowArrays.shift();
+                        lastRow  = arrayOfRowArrays.pop();
 
-                    // #TODO combination of shaving lines and first/last items
+                        // shave off all first and last elements of all rows
+                        for (l = 0; l < arrayOfRowArrays.length; l++) {
+                            firstItem   = arrayOfRowArrays[l].shift();
+                            lastItem    = arrayOfRowArrays[l].pop();
+                            // put them into subRing array
+                            subRing.push(firstItem, lastItem);
+                        }
+                    
+                        ring.push(firstRow, subRing, lastRow);
+                    }
+                    
+                    newGuttedArray.push(flatten2dMatrix(ring));
                 }
-
             } 
             
-            console.log(newGuttedArray);
-            
-            
-            return arrayOfRowArrays;
+            return newGuttedArray;
         }
-        
-        //insideOutShuffle(testArray);
-        
+        //insideOutShuffle(testArray);  
         
         
         /**
          * The Shuffling
          */
+        
+        if (settings.shuffleAlgorithm === "linear" && settings.linearDirection === "top->bottom") {
+            shuffledArray = pixelArray;
+        }
+        
+        if (settings.shuffleAlgorithm === "linear" && settings.linearDirection === "bottom->top") {
+            shuffledArray = pixelArray.reverse();
+        }
+        
+        if (settings.shuffleAlgorithm === "linear" && settings.linearDirection === "left->right") {
+            shuffledArray = rotateShuffle(pixelArray);
+        }
         
         if (settings.shuffleAlgorithm === "random") {
             shuffledArray = randomShuffle(pixelArray);
@@ -275,8 +339,12 @@
             shuffledArray = diagonalShuffle(mirrorShuffle(pixelArray)).reverse();
         }
         
-        if (settings.shuffleAlgorithm === "center") {
+        if (settings.shuffleAlgorithm === "circular" && settings.centerWrapping === "outside->in") {
             shuffledArray = insideOutShuffle(pixelArray);
+        }
+        
+        if (settings.shuffleAlgorithm === "circular" && settings.centerWrapping === "inside->out") {
+            shuffledArray = insideOutShuffle(pixelArray).reverse();
         }
         
         

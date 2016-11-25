@@ -66,7 +66,7 @@
 
         <!-- Call -->
         <script>
-            $("#basic").click(function() {
+            /*$("#basic").click(function() {
                 $('.imgWrapper')
                     .bbPixelify({
                         columns: 7, 
@@ -82,15 +82,22 @@
                         .css('transform', 'scale(0.95)')
                     ;
                 }, 10);
-            });
-
-            /*var myShuffledPixelMatrix = $('.imgWrapper')
-                .bbPixelify({columns: 7, rows: 4})
-                .children()
-                //.bbShuffleMatrix({columns: 7, rows: 4, shuffleAlgorithm: "random"})
-            ;*/
+            });*/
             
-            //console.log(myShuffledPixelMatrix);
+            $(window).load(function() {
+                var myShuffledPixelMatrix = $('.imgWrapper')
+                    .bbPixelify({rows: 4, columns: 7})
+                    .children()
+                    .bbShuffleMatrix({
+                        rows: 4,
+                        columns: 7,
+                        shuffleAlgorithm: "linear",
+                        linearDirection: "left->right"
+                    })
+                ;
+
+                console.log(myShuffledPixelMatrix);
+            });
         </script>
         
     </body>
