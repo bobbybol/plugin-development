@@ -1,0 +1,65 @@
+/* BB Matrix Shuffler styles
+   ========================================================================== */
+
+.matrixDemo {
+    
+    &:not(:first-child) {
+        margin-top: 40px;
+    }
+    
+    &:not(:last-child) {
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 1px 0 rgba(0,0,0,0.5);
+    }
+    
+    .btn {
+        width: 280px;
+    }
+}
+
+.matrixTitle {
+    position: relative;
+    width: 280px;
+    margin: 0 auto;
+    color: $color-font-white;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    line-height: 1em;
+    
+    span {
+        position: relative;
+        &:before,
+        &:after {
+            position: absolute;
+            content: "";
+            width: 14px;
+            height: 2px;
+            border-top: 1px solid $color-1-normal;
+            border-bottom: 1px solid $color-1-normal;
+            top: 10px;
+        }
+
+        &:before {
+            left: -22px;
+        }
+
+        &:after {
+            right: -22px;
+        }
+    }
+    
+}
+
+.matrixText {
+    width: 280px;
+    margin: 20px auto 0;
+    color: $color-font-white;
+    padding: 18px 0 20px;
+    text-align: center;
+    font-size: 16px;
+    border-top: 1px solid $color-1-normal;
+}
+

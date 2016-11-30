@@ -650,6 +650,9 @@ ul {
 .btn-centered {
   margin: 40px auto 0; }
 
+.btn-centered-closeby {
+  margin: 0 auto; }
+
 /* Form styles
    ========================================================================== */
 /* Table styles
@@ -883,6 +886,54 @@ ul {
     width: 94%; }
   .imgWrapper img {
     width: 100%; } }
+
+/* BB Matrix Shuffler styles
+   ========================================================================== */
+.matrixDemo:not(:first-child) {
+  margin-top: 40px; }
+
+.matrixDemo:not(:last-child) {
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+
+.matrixDemo .btn {
+  width: 280px; }
+
+.matrixTitle {
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+  color: #ffffff;
+  padding: 0 0 10px;
+  text-align: center;
+  font-size: 22px;
+  text-transform: uppercase;
+  line-height: 1em; }
+  .matrixTitle span {
+    position: relative; }
+    .matrixTitle span:before,
+    .matrixTitle span:after {
+      position: absolute;
+      content: "";
+      width: 14px;
+      height: 2px;
+      border-top: 1px solid #1bbc9b;
+      border-bottom: 1px solid #1bbc9b;
+      top: 10px; }
+    .matrixTitle span:before {
+      left: -22px; }
+    .matrixTitle span:after {
+      right: -22px; }
+
+.matrixText {
+  width: 280px;
+  margin: 20px auto 0;
+  color: #ffffff;
+  padding: 18px 0 20px;
+  text-align: center;
+  font-size: 16px;
+  border-top: 1px solid #1bbc9b; }
 
 /* Footer styles
    ========================================================================== */

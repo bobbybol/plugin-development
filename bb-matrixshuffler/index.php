@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
     <!-- Declare current Page -->
-    <?php $thisPage="bb-pixelify"; ?>
+    <?php $thisPage="bb-matrixshuffler"; ?>
 
     <!-- Base PHP Controller -->
     <?php include("../shared/controllers/base-controller.php"); ?>
@@ -18,41 +18,122 @@
         
         <main>
             <section class="plugin--demonstration">
-                <div class="imgWrapper">
-                    <img src="img/eagle-speedster@1x.png"/>
+                
+                <div class="matrixDemo">
+                    <h2 class="matrixTitle"><span>Linear Shuffle</span></h2>
+                    <div class="imgWrapper matrixLinear">
+                        <img src="img/eagle-speedster@1x.png"/>
+                    </div>                    
+                    <p class="matrixText">
+                        Can go linearly in horizontal and vertical directions.<br>
+                        Current: "bottom->top"
+                    </p>
+                    <button id="matrixLinear" class="btn btn-centered-closeby">
+                        Animate
+                    </button>
                 </div>
-
-                <button id="basic" class="btn btn-centered">
-                    Pixelify
-                </button>
+                
+                <div class="matrixDemo">
+                    <h2 class="matrixTitle"><span>Diagonal Shuffle</span></h2>
+                    <div class="imgWrapper matrixDiagonal">
+                        <img src="img/eagle-speedster@1x.png"/>
+                    </div>
+                    <p class="matrixText">
+                        Can go linearly in horizontal and vertical directions.<br>
+                        Current: "bottom->top"
+                    </p>
+                    <button id="matrixDiagonal" class="btn btn-centered-closeby">
+                        Animate
+                    </button>
+                </div>
+                
+                <div class="matrixDemo">
+                    <h2 class="matrixTitle"><span>Random Shuffle</span></h2>
+                    <div class="imgWrapper matrixRandom">
+                        <img src="img/eagle-speedster@1x.png"/>
+                    </div>
+                    <p class="matrixText">
+                        Can go linearly in horizontal and vertical directions.<br>
+                        Current: "bottom->top"
+                    </p>
+                    <button id="matrixRandom" class="btn btn-centered-closeby">
+                        Animate
+                    </button>
+                </div>
+                
+                <div class="matrixDemo">
+                    <h2 class="matrixTitle"><span>Circular Shuffle</span></h2>
+                    <div class="imgWrapper matrixCircular">
+                        <img src="img/eagle-speedster@1x.png"/>
+                    </div>
+                    <p class="matrixText">
+                        Can go linearly in horizontal and vertical directions.<br>
+                        Current: "bottom->top"
+                    </p>
+                    <button id="matrixCircular" class="btn btn-centered-closeby">
+                        Animate
+                    </button>
+                </div>
+                
             </section>
             <section class="plugin--explanation">
                 <div class="explanation-container">
                     <h3 class="h3">The Plugin</h3>
                     <p class="p">
-                        BB Pixelify is a plugin developed to help you create specialized image animations. It can cut any image up into any number of tiles, and provides you with plenty of hooks to subsequently animate those tiles.
+                        BB Matrix Shuffler is a plugin developed to..
                     </p>
                     
                     <hr>
                     
                     <h3 class="h3">Usage</h3>
                     <p class="p">
-                        To start using the Pixelify plugin, simple browse to the <a href="https://github.com/bobbybol/pixelify" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+                        To start using the Pixelify plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
                     </p>
                     
                     <hr>
                     
                     <h3 class="h3">About the demo</h3>
                     <p class="p">
-                        The 'scale-down' effect is added to visualize the tiles. The plugin itself doesn't add any effect; it simply cuts the image up into tiles and leaves the animation to you.
+                        ..
                     </p>
                     
                     <hr>
                     
-                    <h3 class="h3">More power with BB Matrix Shuffler</h3>
-                    <p class="p">
-                        A
+                    <h3 class="h3">Changelog</h3>
+                    <p class="p changelog">
+                        <strong>2.2.0</strong>
+                        <br>
+                        Added<br>
+                        • Smart Word Breaker functionality<br>
+                        • Smartbreak character now configurable in options
+                        <br>
+                        <br>
+                        
+                        <strong>2.1.0</strong>
+                        <br>
+                        Added<br>
+                        • Text Equalizer plugin<br>
+                        • Text Equalizer can be called seperately, after fitting
+                        <br>
+                        <br>
+                        
+                        <strong>2.0.0</strong>
+                        <br>
+                        Added<br>
+                        • New repository with completely rebuilt textfitter<br>
+                        • Text Aligner included in main plugin<br>
+                        • Upscaling is now optional
                     </p>
+
+                </div>
+                <div class="dl">
+                    <p class="p">download</p>
+                    <a href="<?php echo $linkGit ?>" target="_blank">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="<?php echo $linkDL ?>">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </a>
                 </div>
             </section>
         </main>
