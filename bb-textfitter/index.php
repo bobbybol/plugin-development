@@ -209,7 +209,7 @@
                         <br>
                         Added<br>
                         • New repository with completely rebuilt textfitter<br>
-                        • Text Aligner included in main plugin
+                        • Text Aligner included in main plugin<br>
                         • Upscaling is now optional
                     </p>
                      

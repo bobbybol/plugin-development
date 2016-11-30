@@ -51,8 +51,49 @@
                     
                     <h3 class="h3">More power with BB Matrix Shuffler</h3>
                     <p class="p">
-                        A
+                        Cutting up an image into a grid of smaller images is a fine thing. But real animation power comes when you use Pixelify in conjunction with the <a href="../bb-matrixshuffler/index.php">Matrix Shuffler</a> plugin. This plugin allows you to change the <em>order</em> in which the individual grid images will be animated, allowing for many cool animation effects.
                     </p>
+                    
+                    <hr>
+                    
+                    <h3 class="h3">Changelog</h3>
+                    <p class="p changelog">
+                        <strong>2.2.0</strong>
+                        <br>
+                        Added<br>
+                        • Passing along some info with $.data(), for use by other plugins<br>
+                        Changed<br>
+                        • Relative CSS position only added when container is static<br>
+                        • Original image is removed to not show up as child<br>
+                        <br>
+                        
+                        <strong>2.1.0</strong>
+                        <br>
+                        Added<br>
+                        • Retina images now supported<br>
+                        Changed<br>
+                        • Improved performance by building new 'div' outside of loop<br>
+                        • Improved performance by limiting DOM lookups<br>
+                        • Tiles are now positioned absolutely<br>
+                        <br>
+                        
+                        <strong>2.0.0</strong>
+                        <br>
+                        Added<br>
+                        • New repository with optimized plugin
+                    </p>
+                     
+                    <hr>
+                    
+                </div>
+                <div class="dl">
+                    <p class="p">download</p>
+                    <a href="<?php echo $linkGit ?>" target="_blank">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="<?php echo $linkDL ?>">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </a>
                 </div>
             </section>
         </main>
@@ -83,18 +124,6 @@
                     ;
                 }, 10);
             });
-            
-            /*$(window).load(function() {
-                var myShuffledPixelMatrix = $('.imgWrapper')
-                    .bbPixelify({rows: 4, columns: 7})
-                    .bbShuffleMatrix({
-                        shuffleAlgorithm: "circular",
-                        shuffleDirection: "outside->in"
-                    })
-                ;
-
-                console.log(myShuffledPixelMatrix);
-            });*/
         </script>
         
     </body>
