@@ -55,6 +55,8 @@
         $pageClass="bb-pixelify";
         $canonical="/bb-pixelify";
         $path="../";
+        $linkGit="https://github.com/bobbybol/pixelify";
+        $linkDL="https://github.com/bobbybol/pixelify/archive/master.zip";
     }
 
 ?>
