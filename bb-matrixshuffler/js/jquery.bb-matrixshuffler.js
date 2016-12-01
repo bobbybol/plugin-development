@@ -1,7 +1,7 @@
 /* jshint -W117 */
 
 /*!
- * BB Matrix Shuffle 1.0.0
+ * BB Matrix Shuffle 0.8.5 beta
  * Reshuffle a grid array into various other layouts
  * https://github.com/bobbybol/matrixshuffler
  * @license MIT licensed
@@ -252,7 +252,6 @@
                                 
                 // CASE 1: if there's more rows than inner rings
                 if(currentNumRows >= currentNumColumns + 1) {
-                    console.log("more rows than rings");
 
                     // shave off first and last row completely
                     firstRow = arrayOfRowArrays.shift();
@@ -265,7 +264,6 @@
                 
                 // CASE 2: if there's more columns than inner rings
                 else if(currentNumColumns >  currentNumRows + 1) {
-                    console.log("more columns than rings");
                     
                     // shave off all first and last elements of all rows
                     for (k = 0; k < arrayOfRowArrays.length; k++) {
@@ -280,7 +278,6 @@
                 
                 // CASE 3: it's a square!!
                 else {
-                    console.log("square");
                     
                     if (arrayOfRowArrays.length === 1) {
                         ring.push(arrayOfRowArrays[0]);

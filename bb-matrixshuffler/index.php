@@ -26,7 +26,7 @@
                     </div>                    
                     <p class="matrixText">
                         Can go linearly in horizontal and vertical directions.<br>
-                        Current: "bottom->top"
+                        Current: "right->left"
                     </p>
                     <button id="matrixLinear" class="btn btn-centered-closeby">
                         Animate
@@ -147,35 +147,150 @@
 
         <!-- Call -->
         <script>
-            $("#basic").click(function() {
-                $('.imgWrapper')
-                    .bbPixelify({
-                        columns: 7, 
-                        rows: 4
+            // Pixelify all, shuffle all
+            $(window).load(function() {
+                // Linear setup
+                var childrenLinear = $('.matrixLinear')
+                    .bbPixelify({rows: 8, columns: 14})
+                    .bbShuffleMatrix({
+                        shuffleAlgorithm: "linear",
+                        shuffleDirection: "right->left"
                     })
-                    .children()
-                    .css('transition', 'all .3s ease-out')
+                    .each(function(){
+                        $(this).css({
+                            transform: 'scale(0)',
+                            borderRadius: '100%'
+                        });
+                    })
                 ;
                 
-                setTimeout(function() {
-                    $('.imgWrapper')
-                        .children()
-                        .css('transform', 'scale(0.95)')
-                    ;
-                }, 10);
-            });
-            
-            /*$(window).load(function() {
-                var myShuffledPixelMatrix = $('.imgWrapper')
-                    .bbPixelify({rows: 4, columns: 7})
+                // Linear click
+                $("#matrixLinear").click(function() {
+                    childrenLinear.each(function(i) {
+                        var $tile = $(this);
+
+                        $tile.css({
+                            transition: 'all 0ms linear',
+                            transform: 'scale(0)',
+                            borderRadius: '100%'
+                        });     
+
+                        setTimeout(function(){
+                            $tile.css({
+                                transition: 'all .3s ease-in-out',
+                                transform: 'scale(1)',
+                                borderRadius: '0%'
+                            });
+                        }, 5*i );
+                    });
+                });
+                
+                // Diagonal setup
+                var childrenDiagonal = $('.matrixDiagonal')
+                    .bbPixelify({rows: 16, columns: 28})
                     .bbShuffleMatrix({
-                        shuffleAlgorithm: "circular",
-                        shuffleDirection: "outside->in"
+                        shuffleAlgorithm: "diagonal",
+                        shuffleDirection: "topleft->bottomright"
+                    })
+                    .each(function(){
+                        $(this).css({
+                            transform: 'scale(0)',
+                            borderRadius: '100%'
+                        });
                     })
                 ;
+                
+                // Diagonal click
+                $("#matrixDiagonal").click(function() {
+                    childrenDiagonal.each(function(i) {
+                        var $tile = $(this);
 
-                console.log(myShuffledPixelMatrix);
-            });*/
+                        $tile.css({
+                            transition: 'all 0ms linear',
+                            transform: 'scale(0)',
+                            borderRadius: '100%'
+                        });
+
+                        setTimeout(function(){
+                            $tile.css({
+                                transition: 'all .25s ease-in-out',
+                                transform: 'scale(1)',
+                                borderRadius: '0%',
+                            });
+                        }, 3*i );
+                    });
+                });
+                
+                // Random setup
+                var childrenRandom = $('.matrixRandom')
+                    .bbPixelify({rows: 16, columns: 28})
+                    .bbShuffleMatrix({
+                        shuffleAlgorithm: "random"
+                    })
+                    .each(function(){
+                        $(this).css({
+                            transform: 'scale(0)'
+                        });
+                    })
+                ;
+                
+                // Random click
+                $("#matrixRandom").click(function() {
+                    childrenRandom.each(function(i) {
+                        var $tile = $(this);
+
+                        $tile.css({
+                            transition: 'all 0ms linear',
+                            transform: 'scale(0)'
+                        }); 
+
+                        setTimeout(function(){
+                            $tile.css({
+                                transition: 'all .25s ease-in-out',
+                                transform: 'scale(1)' 
+                            });
+                        }, 3*i );
+                    });
+                });
+                
+                // Circular setup
+                var childrenCircular = $('.matrixCircular')
+                    .bbPixelify({rows: 16, columns: 28})
+                    .bbShuffleMatrix({
+                        shuffleAlgorithm: "circular",
+                        shuffleDirection: "inside->out"
+                    })
+                    .each(function(){
+                        $(this).each(function(){
+                            $(this).css({
+                                transform: 'scale(0)',
+                                borderRadius: '100%'
+                            });
+                        });
+                    })
+                ;
+                                
+                // Circular click
+                $("#matrixCircular").click(function() {
+                    childrenCircular.each(function(i) {
+                        var $tileArray = $(this);
+
+                        $tileArray.css({
+                            transition: 'all 0ms linear',
+                            transform: 'scale(0)',
+                            borderRadius: '100%'
+                        }); 
+                        
+                        setTimeout(function(){
+                            $tileArray.css({
+                                transition: 'all 600ms cubic-bezier(0.000, 1.650, 1.000, 1.650)',
+                                transform: 'scale(1)',
+                                borderRadius: '0%'
+                            });
+                        }, 100*i );
+                    });
+                }); 
+            });          
         </script>
         
     </body>
