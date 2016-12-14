@@ -44,6 +44,10 @@
 }
 
 .changelog strong {
+    font-size: 18px;
+    color: $color-1-active;
+}
+.changelog em {
     text-decoration: underline;
 }
 

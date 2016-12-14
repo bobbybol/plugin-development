@@ -39,8 +39,8 @@
                         <img src="img/eagle-speedster@1x.png"/>
                     </div>
                     <p class="matrixText">
-                        Can go linearly in horizontal and vertical directions.<br>
-                        Current: "bottom->top"
+                        Can go diagonally from any corner to the opposing corner.<br>
+                        Current: "topleft->bottomright"
                     </p>
                     <button id="matrixDiagonal" class="btn btn-centered-closeby">
                         Animate
@@ -53,8 +53,7 @@
                         <img src="img/eagle-speedster@1x.png"/>
                     </div>
                     <p class="matrixText">
-                        Can go linearly in horizontal and vertical directions.<br>
-                        Current: "bottom->top"
+                        Shuffles your array randomly.
                     </p>
                     <button id="matrixRandom" class="btn btn-centered-closeby">
                         Animate
@@ -67,8 +66,8 @@
                         <img src="img/eagle-speedster@1x.png"/>
                     </div>
                     <p class="matrixText">
-                        Can go linearly in horizontal and vertical directions.<br>
-                        Current: "bottom->top"
+                        Can wrap your array inside out or outside in.<br>
+                        Current: "inside->out"
                     </p>
                     <button id="matrixCircular" class="btn btn-centered-closeby">
                         Animate
@@ -80,50 +79,71 @@
                 <div class="explanation-container">
                     <h3 class="h3">The Plugin</h3>
                     <p class="p">
-                        BB Matrix Shuffler is a plugin developed to..
+                        BB Matrix Shuffler is a plugin developed to re-order two-dimensional arrays. In its current beta version, it can be applied to jQuery collections only. The Matrix Shuffler is intended to help you create amazing staggered animations.
                     </p>
                     
                     <hr>
                     
                     <h3 class="h3">Usage</h3>
                     <p class="p">
-                        To start using the Pixelify plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+                        To start using the Matrix Shuffler plugin, simply browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
                     </p>
                     
                     <hr>
                     
                     <h3 class="h3">About the demo</h3>
                     <p class="p">
-                        ..
+                        This demo uses the <a href="https://github.com/bobbybol/pixelify" target="_blank">BB Pixelify</a> plugin to cut up one image into a grid of small images, before shuffling those images with the Matrix Shuffler. Animation is done with simple CSS transitions, but could be done with any JavaScript animation platform, like <a href="http://greensock.com/gsap" target="_blank">GSAP</a> for example.
                     </p>
                     
                     <hr>
                     
                     <h3 class="h3">Changelog</h3>
                     <p class="p changelog">
-                        <strong>2.2.0</strong>
-                        <br>
-                        Added<br>
-                        • Smart Word Breaker functionality<br>
-                        • Smartbreak character now configurable in options
-                        <br>
-                        <br>
                         
-                        <strong>2.1.0</strong>
+                        <strong>0.8.5</strong>
                         <br>
-                        Added<br>
-                        • Text Equalizer plugin<br>
-                        • Text Equalizer can be called seperately, after fitting
-                        <br>
-                        <br>
+                        <em>Changed</em><br>
+                        • Handle $.data object
+                        <br><br>
                         
-                        <strong>2.0.0</strong>
+                        <strong>0.8.0</strong>
                         <br>
-                        Added<br>
-                        • New repository with completely rebuilt textfitter<br>
-                        • Text Aligner included in main plugin<br>
-                        • Upscaling is now optional
+                        <em>Added</em><br>
+                        • Circular shuffle
+                        <br><br>
+                        
+                        <strong>0.7.5</strong>
+                        <br>
+                        <em>Changed</em><br>
+                        • Functional refactoring
+                        <br><br>
+                        
+                        <strong>0.7.0</strong>
+                        <br>
+                        <em>Added</em><br>
+                        • Linear shuffle<br>
+                        • Mirror shuffle
+                        <br><br>
+                        
+                        <strong>0.6.5</strong>
+                        <br>
+                        <em>Changed</em><br>
+                        • Functional refactoring
+                        <br><br>
+                        
+                        <strong>0.6.0</strong>
+                        <br>
+                        <em>Added</em><br>
+                        • Diagonal shuffle
+                        <br><br>
+                        
+                        <strong>0.5.0</strong>
+                        <br>
+                        <em>Added</em><br>
+                        • Random shuffle
                     </p>
+                    <hr>
 
                 </div>
                 <div class="dl">

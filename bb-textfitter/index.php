@@ -182,7 +182,7 @@
                     
                     <h3 class="h3">Usage</h3>
                     <p class="p">
-                        To start using the Text Fitter plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+                        To start using the Text Fitter plugin, simply browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
                     </p>
                     
                     <hr>

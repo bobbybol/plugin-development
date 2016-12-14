@@ -37,7 +37,7 @@
                     
                     <h3 class="h3">Usage</h3>
                     <p class="p">
-                        To start using the Pixelify plugin, simple browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+                        To start using the Pixelify plugin, simply browse to the <a href="<?php echo $linkGit ?>" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
                     </p>
                     
                     <hr>
@@ -60,18 +60,18 @@
                     <p class="p changelog">
                         <strong>2.2.0</strong>
                         <br>
-                        Added<br>
+                        <em>Added</em><br>
                         • Passing along some info with $.data(), for use by other plugins<br>
-                        Changed<br>
+                        <em>Changed</em><br>
                         • Relative CSS position only added when container is static<br>
                         • Original image is removed to not show up as child<br>
                         <br>
                         
                         <strong>2.1.0</strong>
                         <br>
-                        Added<br>
+                        <em>Added</em><br>
                         • Retina images now supported<br>
-                        Changed<br>
+                        <em>Changed</em><br>
                         • Improved performance by building new 'div' outside of loop<br>
                         • Improved performance by limiting DOM lookups<br>
                         • Tiles are now positioned absolutely<br>
@@ -79,7 +79,7 @@
                         
                         <strong>2.0.0</strong>
                         <br>
-                        Added<br>
+                        <em>Added</em><br>
                         • New repository with optimized plugin
                     </p>
                      

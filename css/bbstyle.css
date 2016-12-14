@@ -296,7 +296,8 @@ select {
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-html [type="button"], [type="reset"],
+html [type="button"],
+[type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
   /* 2 */ }
@@ -415,7 +416,8 @@ textarea {
  * Add the correct display in IE 9-.
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
-details, menu {
+details,
+menu {
   display: block; }
 
 /*
@@ -530,6 +532,10 @@ button::-moz-focus-inner {
     color: #ffffff; }
 
 .changelog strong {
+  font-size: 18px;
+  color: #158f76; }
+
+.changelog em {
   text-decoration: underline; }
 
 hr {
@@ -900,13 +906,19 @@ ul {
 .matrixDemo .btn {
   width: 280px; }
 
-.bb-matrixshuffler .imgWrapper:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
-  z-index: 2; }
+.bb-matrixshuffler .imgWrapper {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }
+  .bb-matrixshuffler .imgWrapper:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
+    z-index: 2; }
 
 .matrixTitle {
   position: relative;
@@ -920,8 +932,7 @@ ul {
   line-height: 1em; }
   .matrixTitle span {
     position: relative; }
-    .matrixTitle span:before,
-    .matrixTitle span:after {
+    .matrixTitle span:before, .matrixTitle span:after {
       position: absolute;
       content: "";
       width: 14px;
