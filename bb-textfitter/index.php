@@ -189,6 +189,13 @@
                     
                     <h3 class="h3">Changelog</h3>
                     <p class="p changelog">
+                        <strong>2.2.1</strong>
+                        <br>
+                        Fixed<br>
+                        • IE bug when vertically aligning and scaling up
+                        <br>
+                        <br>
+                        
                         <strong>2.2.0</strong>
                         <br>
                         Added<br>
