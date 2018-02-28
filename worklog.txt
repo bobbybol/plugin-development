@@ -1,0 +1,13 @@
+-------------------------------------------------------------
+WORKLOG for THIS PROJECT
+-------------------------------------------------------------
+# Goal {{date}} (current)
+
+
+-------------------------------------------------------------
+WORKLOG for STARTER TEMPLATE
+-------------------------------------------------------------
+Goal -- 10-05-2017 -- Test if mqpacker & cleancss & nano run in buildMode
+
+09-05-2017 -- Review folder/file structure
+07-05-2017 -- Continue on PostCSS with some modular CSS files + Normalize

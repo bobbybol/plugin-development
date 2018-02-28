@@ -1,0 +1,13 @@
+{
+    "globals": {
+        "$": false,
+        "jQuery": false,
+        "document": false,
+        "window": false,
+        "localStorage": false,
+        "sessionStorage": false,
+        "setTimeout": false,
+        
+        "ALION": false
+    }
+}

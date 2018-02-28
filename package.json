@@ -1,0 +1,51 @@
+{
+  "name": "alion-flat-starter-template",
+  "version": "2.0.0",
+  "description": "A starter template for Alion. You can put your own project description here.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bobbybol@bitbucket.org/alionbv/ast-flat.git"
+  },
+  "author": "Bobby Bol <bobby@alion.nl>",
+  "license": "MIT",
+  "dependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "normalize.css": "^7.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.0.1",
+    "browser-sync": "^2.18.8",
+    "css-mqpacker": "^6.0.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-file": "^0.3.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-nunjucks-render": "^2.2.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-wait": "0.0.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "lost": "^8.0.0",
+    "run-sequence": "^1.2.2",
+    "sass-module-importer": "^1.4.0",
+    "yargs": "^8.0.1"
+  },
+  "scripts": {
+    "env:development": "gulp set-environment --env=development",
+    "env:staging": "gulp set-environment --env=staging",
+    "env:production": "gulp set-environment --env=production",
+    "dev": "gulp run:development",
+    "dev:ghostmode": "gulp run:development --ghostmode",
+    "build": "gulp run:build"
+  }
+}

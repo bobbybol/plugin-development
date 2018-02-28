@@ -1,0 +1,14 @@
+# npm
+node_modules/
+
+# build
+_www_/
+
+# taskrunner
+taskrunner/environments/._currentEnv
+taskrunner/environments/_ALION_ENV.js
+src/bundle/
+src/assets/css/
+
+#IDE
+.vscode/

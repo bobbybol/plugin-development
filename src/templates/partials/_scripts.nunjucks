@@ -1,0 +1,5 @@
+<!-- VENDOR -->
+<script src="bundle/vendor.js"></script>
+
+<!-- APP -->
+<script src="bundle/app.js"></script>

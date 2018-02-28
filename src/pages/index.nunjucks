@@ -1,0 +1,14 @@
+{% extends "layout.nunjucks" %}
+
+{# Set Page Variables #}
+{% set $thisPageTitle           = 'Page Title' %}
+{% set $thisPageDescription     = 'Page Description' %}
+
+{# Content #}
+{% block content %}
+
+<main class="mainContent">
+
+</main>
+    
+{% endblock %}

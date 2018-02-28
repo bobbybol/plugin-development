@@ -1,0 +1,18 @@
+/* Transitions
+   ========================================================================== */
+
+/**
+ * REGULAR
+ * all 600ms ease-out
+ */
+.someElement {
+    transition: all 0.6s ease-out 0s;
+}
+
+/**
+ * EXPO
+ * all 600ms ease-out
+ */
+.someElement {
+    transition: all 0.6s $ease--out-expo 0s;
+}

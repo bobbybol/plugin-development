@@ -1,0 +1,7 @@
+/* AUTHORS */
+
+		Name: Bobby Bol
+        Company: Alion
+		Contact: info[at]alion.nl
+		Twitter: @alionbv
+		Location: Delft NL

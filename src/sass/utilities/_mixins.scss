@@ -1,0 +1,176 @@
+/* Mixins
+   ========================================================================== */
+
+/*--------------------------------
+
+	Responsive ratio
+
+	Used for creating scalable elements that maintain the same ratio
+
+	example:
+	.element {
+		@include responsive-ratio(400, 300);
+	}
+
+*/
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+	$padding: unquote(( $y / $x ) * 100 + '%');
+
+	@if $pseudo {
+		&::before {
+			@include pseudo($pos: relative);
+			width: 100%;
+			padding-top: $padding;
+		}
+	} @else {
+		padding-top: $padding;
+	}
+}
+
+
+
+/*--------------------------------
+	CSS Triangle
+	used for creating CSS only triangles
+	example:
+	.element {
+		&::before {
+			@include css-triangle(blue, down);
+		}
+	}
+*/
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+	@include pseudo($pos: $position);
+	width: 0;
+	height: 0;
+
+	@if $round {
+		border-radius: 3px;
+	}
+
+	@if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+		margin-top: 0 - round($size / 2.5);
+	} @else if $direction == up {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+		margin-bottom: 0 - round($size / 2.5);
+	} @else if $direction == right {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-left: $size solid $color;
+		margin-right: -$size;
+	} @else if  $direction == left {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-right: $size solid $color;
+		margin-left: -$size;
+	}
+}
+
+
+
+/*--------------------------------
+	Form input placeholder text
+	example:
+	input,
+	textarea {
+		@include input-placeholder {
+			color: $grey;
+		}
+	}
+*/
+
+@mixin input-placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+
+
+/*--------------------------------
+
+	Misc
+
+*/
+
+// hidden :: hide from both screenreaders and browsers
+@mixin hidden {
+	display: none;
+	visibility: hidden;
+}
+
+// visible :: show on screenreaders and browsers
+@mixin visible($state: 'block') {
+	display: unquote($state);
+	visibility: visible;
+}
+
+// visually-hidden :: Hide only visually, but have it available for screenreaders
+@mixin visually-hidden($focusable: false) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	@if $focusable {
+		@include focusable;
+	}
+}
+
+// focusable :: Allow the element to be focusable when navigated to via the keyboard
+@mixin focusable {
+	&:active,
+	&:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
+// pseudo :: common styles for pseudo elements
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+// truncate :: truncate text
+@mixin truncate($truncation-boundary) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// hardware-acceleration :: force it
+@mixin hardware-acceleration($backface: true, $perspective: 1000) {
+
+	@if $backface {
+		backface-visibility: hidden;
+	}
+
+	perspective: $perspective;
+}
+
+// antialias :: antialias text
+@mixin antialias {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
