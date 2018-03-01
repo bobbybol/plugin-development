@@ -1,1 +1,7 @@
-<footer class="mainFooter"></footer>
+<footer class="mainFooter">
+    <p>Copyright © 2016 bobbybol.com - A project by Bobby Bol</p>
+</footer>
+
+<div class="preloader">
+    <img class="prelogo" src="assets/img/identity/bb-logo-100@2x.png" alt="bb plugin logo">
+</div>

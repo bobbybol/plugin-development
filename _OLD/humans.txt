@@ -1,6 +1,0 @@
-/* AUTHORS */
-
-        Name: Bobby Bol
-        Company: bobbybol.com
-        Contact: me[at]bobbybol.com
-        Location: Delft NL

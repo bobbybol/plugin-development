@@ -1,0 +1,31 @@
+/* BB Pixelify styles
+   ========================================================================== */
+
+.imgWrapper {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.imgWrapper img {
+    display: block;
+    width: 700px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+
+/**
+ * Media Queries
+ */
+
+@media only screen and (max-width: 799px){
+    .imgWrapper {
+        width: 94%;
+    }
+
+    .imgWrapper img {
+        width: 100%;
+    }  
+}

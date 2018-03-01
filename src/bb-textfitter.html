@@ -1,0 +1,400 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
+    <meta name="msapplication-tap-highlight" content="no"/>
+    
+    <!-- Site info -->
+    <title>BB Text Fitter Plugin | by Bobby Bol</title>
+    <meta name="description" content="A JavaScript plugin to resize text in order to fit perfectly within its parent container.">
+    <meta name="keywords" content="javascript, jquery, plugin, plugins, bobby bol, ">
+    <link rel="publisher" href="https://plus.google.com/+BobbyBolVerlaan">
+    <link rel="author" href="humans.txt">
+    <link rel="canonical" href="http://bobbybol.com/plugins/bb-textfitter.html">
+    
+    <!-- Og -->
+    <meta property="og:url" content="http://bobbybol.com/plugins/bb-textfitter.html">
+    <meta property="og:type" content="website">    
+    <meta property="og:title" content="BB Text Fitter Plugin | by Bobby Bol">
+    <meta property="og:description" name="description" content="A JavaScript plugin to resize text in order to fit perfectly within its parent container.">
+    <meta property="og:image" content="assets/img/common/share/bb-textfitter.jpg" />
+    
+    <!-- Mobile -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="bb-textfitter">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="assets/img/common/icons/apple-touch-icon-180x180-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/common/icons/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/img/common/icons/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/img/common/icons/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/img/common/icons/apple-touch-icon-precomposed.png"> <!-- 57x57 -->
+    <link rel="icon" sizes="192x192" href="assets/img/common/icons/android-touch-icon-192x192.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gloria+Hallelujah|Josefin+Slab:300">
+    
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+    
+<body class="bb-plugin bb-textfitter">
+        
+    
+    <header class="mainHeader">
+    <h1 class="h1">BB Text Fitter</h1>
+    <div class="dl">
+        <a href="https://github.com/bobbybol/textFitter" target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/bobbybol/textFitter/archive/master.zip">
+            <i class="fa fa-download" aria-hidden="true"></i>
+        </a>
+    </div>
+</header>
+    
+    
+    
+
+<main>
+    <section class="plugin--demonstration">
+        <div class="textfitWrapper clearfix">          
+
+            <!-- Regular fit -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="fit-regular">
+                        Some text that by default doesn't fit its parent container. This text at its regular size of 18px in fact exceeds the fixed height of the parent, but we can solve that by calling bbFitText().
+                    </p>
+                </div>              
+                <p class="textfitTitle">
+                    Regular settings, only scaling down to fit height.
+                </p>                
+                <button id="fit-regular" class="btn btn-textfit">Text Fittie</button>
+            </div>            
+
+            <!-- Align center -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="align-center">Centered</p>
+                </div>              
+                <p class="textfitTitle">
+                    Centering vertically & horizontally, <em>not</em> scaling up.
+                </p>                
+                <button id="align-center" class="btn btn-textfit">Text Fittie</button>
+            </div>
+
+            <!-- Scaling up in width -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="scale-up-width">Enlarged</p>
+                </div>              
+                <p class="textfitTitle">
+                    Scaling <em>up</em> in width.<br><br>
+                </p>                
+                <button id="scale-up-width" class="btn btn-textfit">Text Fittie</button>
+            </div>
+
+            <!-- Big word -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="big-word">
+                        This text contains a very long and <span style="text-decoration: underline;">impressivelycomplicated</span> word, or perhaps we just forgot a space.
+                    </p>
+                </div>              
+                <p class="textfitTitle">
+                    Perfect scaling of big words.<br><br>
+                </p>                
+                <button id="big-word" class="btn btn-textfit">Text Fittie</button>
+            </div>
+
+            <!-- Single line -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="force-single-line">Force text on single line</p>
+                </div>              
+                <p class="textfitTitle">
+                    Force text on fitted single line.<br><br>
+                </p>                
+                <button id="force-single-line" class="btn btn-textfit">Text Fittie</button>
+            </div>
+
+            <!-- Line Height -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="line-height">Nice big line height</p>
+                </div>              
+                <p class="textfitTitle">
+                    Set line height with em.<br><br>
+                </p>                
+                <button id="line-height" class="btn btn-textfit">Text Fittie</button>
+            </div>
+
+            <!-- Font combinations -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="font-combination">
+                        <span style="font-family: 'Josefin Slab'; font-weight: 300;">Any combination of</span><span style="font-family: 'Gloria Hallelujah'; font-weight: 400;"> any number of fonts</span>
+                    </p>
+                </div>              
+                <p class="textfitTitle">
+                    Set line height with em.<br><br>
+                </p>                
+                <button id="font-combination" class="btn btn-textfit">Text Fittie</button>    
+            </div>
+
+            <!-- Padding too -->
+            <div class="textfitContainer">                
+                <div class="textContainer" style="padding: 40px;">
+                    <p class="padding-too">Padding works too</p>
+                </div>              
+                <p class="textfitTitle">
+                    Put padding on parent with <br><em>box-sizing: border-box;</em>
+                </p>                
+                <button id="padding-too" class="btn btn-textfit">Text Fittie</button>       
+            </div>
+
+            <!-- Multiple -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <div class="fitOne">
+                        <p class="multiple">Some text</p>
+                    </div>
+                    <div class="fitOne">
+                        <p class="multiple">A little more text</p>
+                    </div>
+                    <div class="fitOne">
+                        <p class="multiple">Some more text still ;)</p>
+                    </div>
+                </div>              
+                <p class="textfitTitle">
+                    It's possible to fit all your text nodes with just one call.
+                </p>                
+                <button id="multiple" class="btn btn-textfit">Text Fittie</button>     
+            </div>
+
+            <!-- Equalize multiple -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <div class="fitOne">
+                        <p class="equalize">Some text</p>
+                    </div>
+                    <div class="fitOne">
+                        <p class="equalize">A little more text</p>
+                    </div>
+                    <div class="fitOne">
+                        <p class="equalize">Some more text still ;)</p>
+                    </div>
+                </div>              
+                <p class="textfitTitle">
+                    It's also possible to equalize selected text nodes.
+                </p>                
+                <button id="equalize" class="btn btn-textfit">Text Fittie</button>   
+            </div>
+            
+            <!-- Smart Word Break -->
+            <div class="textfitContainer">                
+                <div class="textContainer">
+                    <p class="smart-break">
+                        I watched the movie 'It' and now I suffer from coulro~phobia.
+                    </p>
+                </div>              
+                <p class="textfitTitle">
+                    Smart word breaking for extra control over layout.
+                </p>                
+                <button id="smart-break" class="btn btn-textfit">Text Fittie</button>
+            </div>
+            
+        </div>
+    </section>
+    <section class="plugin--explanation">
+        <div class="explanation-container">
+            <h3 class="h3">The Plugin</h3>
+            <p class="p">
+                BB Text Fitter is a plugin developed to help you with fitting text into a limited amount of space. This can occur when designing a responsive site with some complex layout, or if you have text coming from a database that should fit a certain container, but you don't have control over the amount of text provided.
+                <br>
+                <br>
+                Thanks to some excellent user feedback over time, this plugin has come to include a wealth of interesting features. Most of these are included into the Text Fitter plugin itself, and can be configured by changing the plugin settings. The exception to this is the Equalize Text feature, which has evolved to become a separate plugin by itself. It is included with Text Fitter, and can be used immediately.
+            </p>
+            
+            
+            <hr>
+            
+            <h3 class="h3">Usage</h3>
+            <p class="p">
+                To start using the Text Fitter plugin, simply browse to the <a href="https://github.com/bobbybol/textFitter" target="_blank">Github</a> page, download the plugin, and include it in your project. Instructions on how to use the plugin are provided there as well.
+            </p>
+            
+            <hr>
+            
+            <h3 class="h3">Changelog</h3>
+            <p class="p changelog">
+                <strong>2.2.1</strong>
+                <br>
+                Fixed<br>
+                • IE bug when vertically aligning and scaling up
+                <br>
+                <br>
+                
+                <strong>2.2.0</strong>
+                <br>
+                Added<br>
+                • Smart Word Breaker functionality<br>
+                • Smartbreak character now configurable in options
+                <br>
+                <br>
+                
+                <strong>2.1.0</strong>
+                <br>
+                Added<br>
+                • Text Equalizer plugin<br>
+                • Text Equalizer can be called seperately, after fitting
+                <br>
+                <br>
+                
+                <strong>2.0.0</strong>
+                <br>
+                Added<br>
+                • New repository with completely rebuilt textfitter<br>
+                • Text Aligner included in main plugin<br>
+                • Upscaling is now optional
+            </p>
+                
+            <hr>
+            
+        </div>
+        <div class="dl">
+            <p class="p">download</p>
+            <a href="https://github.com/bobbybol/textFitter" target="_blank">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/bobbybol/textFitter/archive/master.zip">
+                <i class="fa fa-download" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+</main>
+    
+
+    
+    
+    <footer class="mainFooter">
+    <p>Copyright © 2016 bobbybol.com - A project by Bobby Bol</p>
+</footer>
+
+<div class="preloader">
+    <img class="prelogo" src="assets/img/identity/bb-logo-100@2x.png" alt="bb plugin logo">
+</div>
+
+    
+    
+    <!-- jQuery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+    $(window).load(function() {
+        setTimeout(function() {
+            $('.preloader').fadeOut();
+        }, 200);
+    });
+</script>
+
+    
+    
+
+<!-- Plugin -->
+<script src="_plugins/jquery.bb-textfitter.js"></script>
+
+<!-- Call -->
+<script>
+    $('#fit-regular').click(function() {
+        $('.fit-regular').bbFitText();
+    });
+    
+    $('#align-center').click(function() {
+        $('.align-center').bbFitText({
+            centerHorizontal    : true,
+            centerVertical      : true
+        });
+    });
+    
+    $('#scale-up-width').click(function() {
+        $('.scale-up-width').bbFitText({
+            scaleUpToo          : true
+        });
+    });
+    
+    $('#big-word').click(function() {
+        $('.big-word').bbFitText();
+    });
+    
+    $('#force-single-line').click(function() {
+        $('.force-single-line').bbFitText({
+            forceSingleLine     : true
+        });
+    });
+    
+    $('#line-height').click(function() {
+        $('.line-height').bbFitText({
+            lineHeight          : 2,
+            scaleUpToo          : true
+        });
+    });
+    
+    $('#font-combination').click(function() {
+        $('.font-combination').bbFitText({
+            scaleUpToo          : true,
+            centerVertical      : true
+        });
+    });
+    
+    $('#padding-too').click(function() {
+        $('.padding-too').bbFitText({
+            scaleUpToo          : true,
+            centerVertical      : true,
+            centerHorizontal    : true
+        });
+    });
+    
+    $('#multiple').click(function() {
+        $('.multiple').bbFitText({
+            scaleUpToo          : 'true',
+            centerVertical      : true,
+            lineHeight          : 1.1,
+            forceSingleLine     : true
+        });
+    });
+    
+    $('#equalize').click(function() {
+        $('.equalize').bbFitText({
+            scaleUpToo          : 'true',
+            centerVertical      : true,
+            lineHeight          : 1.1,
+            forceSingleLine     : true
+        }).bbEqualizeText();
+    });
+    
+    $('#smart-break').click(function() {
+        $('.smart-break').bbFitText({
+            smartBreak          : true,
+            scaleUpToo          : true
+        });
+    });
+</script>
+
+
+    
+</body>
+    
+</html>

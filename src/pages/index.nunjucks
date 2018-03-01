@@ -12,3 +12,10 @@
 </main>
     
 {% endblock %}
+
+{# Scripts #}
+{% block scripts %}
+
+
+    
+{% endblock %}

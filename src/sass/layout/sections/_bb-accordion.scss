@@ -1,0 +1,116 @@
+/* BB Accordion styles
+   ========================================================================== */
+
+.myAccordion,
+#myAccordion {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+/**
+ * Topbar
+ */
+
+.myAccordion--topbar {
+    position: relative;
+    background-color: $color-1-normal;
+    height: 50px;
+    color: $color-font-white;
+    
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+    
+    .icon {
+        float: left;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .title {
+        float: left;   
+        font-size: 16px;
+        margin: 0;
+        padding: 15px 0;
+        line-height: 20px;
+    }
+    
+    .toggle {
+        float: right;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+    }
+    
+    i {
+        display: block;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    .icon i {
+        font-size: 30px;
+    }
+    
+    .toggle i {
+        font-size: 20px;
+    }
+}
+
+
+/**
+ * Content
+ */
+
+.myAccordion--content {
+    background-color: #fff;
+    border-bottom: 2px solid $color-box-dark;
+    
+    .p {
+        color: #999;
+        padding: 20px 20px 0;
+        
+        &:last-child {
+            padding-bottom: 20px;
+        }
+    }
+    
+    ul {
+        color: $color-font-gray-medium;
+    }
+    
+    li {
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid $color-line-light;
+        padding: 0 20px;
+        
+        span {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 0;
+            right: 0;
+            text-align: center;
+            
+            &.win {
+                color: limegreen;
+            }
+            
+            &.lose {
+                color: crimson;
+            }
+        }
+    }
+}

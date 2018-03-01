@@ -4,8 +4,7 @@
 /**
  * Typography
  */
-
-$font-regular: "Merriweather", Georgia, "Times New Roman", Times, serif;
+$font-regular: 'Helvetica', 'Arial', sans-serif;
 //$font-special: "Raleway", Helvetica, Arial, sans-serif;
 
 
@@ -14,14 +13,18 @@ $font-regular: "Merriweather", Georgia, "Times New Roman", Times, serif;
  */
 
 // Brand colors
-    //$color-1-normal: #000016;
-    //$color-2-normal: #fd7208;
+    $color-1-normal: #1bbc9b;
+    $color-1-active: darken($color-1-normal, 10%);
 
 // Box colors
-    //$color-box-white: #ffffff;
+    $color-box-white: #fff;
+    $color-box-dark: #2c2f38;
 
 // Line colors
+    $color-line-light: #dbdbdb;
 
 // Text colors
-    //$color-font-dark: #000000;
-    //$color-font-white: #ffffff;
+    $color-font-black: #212121;
+    $color-font-gray-medium: #999;
+    $color-font-gray-light: #b2b2b2;
+    $color-font-white: #ffffff;

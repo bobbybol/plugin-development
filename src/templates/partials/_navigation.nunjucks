@@ -1,1 +1,11 @@
-<nav class="mainNavigation"></nav>
+<header class="mainHeader">
+    <h1 class="h1">{{ $thisPageRenderedTitle }}</h1>
+    <div class="dl">
+        <a href="{{ $thisPageLinkGit }}" target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="{{ $thisPageLinkDL }}">
+            <i class="fa fa-download" aria-hidden="true"></i>
+        </a>
+    </div>
+</header>

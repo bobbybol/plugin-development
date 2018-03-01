@@ -1,5 +1,10 @@
-<!-- VENDOR -->
-<script src="bundle/vendor.js"></script>
+<!-- jQuery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-<!-- APP -->
-<script src="bundle/app.js"></script>
+<script>
+    $(window).load(function() {
+        setTimeout(function() {
+            $('.preloader').fadeOut();
+        }, 200);
+    });
+</script>

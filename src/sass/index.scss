@@ -1,19 +1,16 @@
 /* Main Imports
    ========================================================================== */
 
-// Normalize
-@import "../../node_modules/normalize.css/normalize";
+// Bourbon
+@import "bourbon/bourbon";
 
 // Utilities
 @import "utilities/settings";
-@import "../../node_modules/breakpoint-sass/stylesheets/breakpoint";
-@import "utilities/mixins";
 @import "utilities/utilities";
-@import "utilities/plugins";
 
 // Base
-@import "base/global";
-@import "base/resets";
+@import "base/normalize";
+@import "base/base";
 @import "base/typography";
 
 // Animation
@@ -23,6 +20,7 @@
 @import "modules/btn";
 @import "modules/forms";
 @import "modules/tables";
+@import "modules/preloader";
 
 // Layout
 @import "layout/header";

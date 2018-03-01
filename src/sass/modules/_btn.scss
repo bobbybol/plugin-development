@@ -2,5 +2,33 @@
    ========================================================================== */
 
 .btn {
+    display: block;
+    width: 200px;    
+    background: rgba(255,255,255,0);
+    border: 2px solid $color-1-normal;
+    color: $color-1-normal;
+    padding: 10px 0;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+        
+    &:hover {
+        background: $color-1-normal; 
+        color: $color-font-white;
+    }
+}
 
+.btn-textfit {
+    margin: 0 20px 20px; 
+}
+
+.btn-centered {
+    margin: 40px auto 0;
+}
+
+.btn-centered-closeby {
+    margin: 0 auto;
 }
